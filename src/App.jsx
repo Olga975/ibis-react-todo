@@ -2,22 +2,20 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
-const todoList = [
-  { id: 1, title: "Finish homework" },
-  { id: 2, title: "Buy groceries" },
-  { id: 3, title: "Clean the house" }
-];
+import TodoList from './TodoList'
+import AddTodoForm from './AddTodoForm'
+import TodoListItem from './TodoListItem'
 
 function App() {
+
+  const [newTodo, setNewTodo] = useState("");
+
   return (
     <>
       <h1>Todo List</h1>
-      <ul>
-        {todoList.map(todo => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-      </ul>
+      <AddTodoForm onAddTodo={setNewTodo} />
+      <p>{newTodo}</p>
+      <TodoList />
     </>
   );
 }

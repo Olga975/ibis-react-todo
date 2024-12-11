@@ -7,11 +7,11 @@ const todoList = [
   { id: 3, title: "Clean the house" }
 ];
 
-function TodoList() {
+function TodoList({ todoList }) {
   return (
     <ul>
       {todoList.map(todo => (
-        <TodoListItem key={todo.id} todo={todo} />
+        <li key={todo.id}>{todo.title}</li>
       ))}
     </ul>
   );

@@ -1,7 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import style from './TodoListItem.module.css';
-import removeIcon from './assets/removeIcon.png';
-
+import removeIcon from '../assets/removeIcon.png';
 
 function TodoListItem({ todo, onRemoveTodo }) {
     return (
@@ -17,6 +17,15 @@ function TodoListItem({ todo, onRemoveTodo }) {
             </button>
         </li>
     );
+};
+
+// Defined prop types for this component
+TodoListItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  }).isRequired,
+  onRemoveTodo: PropTypes.func.isRequired
 };
 
 export default TodoListItem;
